@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Clipboard Group Selection</title>
+   <style>
+      body {
+        color: white;
+        text-align: center;
+        background: #292929;
+      }
+      #oneB, #twoB, #threeB, #fourB, #fiveB, #sixB, #sevenB, #eightB, #nineB, #tenB {
+         background: gray;
+         color: white;
+         font-size: 18pt;
+         padding: 0px;
+      }
+      #oneB:hover, #twoB:hover, #threeB:hover, #fourB:hover, #fiveB:hover, #sixB:hover, #sevenB:hover, #eightB:hover, #nineB:hover, #tenB:hover{
+         background-color: #f5f5f5;
+         color: #292929;
+         cursor: default;
+      }
+      #oneB:active, #twoB:active, #threeB:active, #fourB:active, #fiveB:active, #sixB:active, #sevenB:active, #eightB:active, #nineB:active, #tenB:active{
+        background: #d4d4d4;
+      }
+      table {
+        width: 375px;
+      }
+      td {
+        border: 1px solid #292929;
+        width: 75px;
+        height: 75px;
+        vertical-align: bottom;
+      }
+   </style>
+</head>
+
+<body>
+   <article>
+      <h3>Clipboard Group Select</h3>
+      <table cellspacing="0">
+        <tr>
+          <td id="oneB">1</p></td>
+          <td id="twoB">2</p></td>
+          <td id="threeB">3</p></td>
+          <td id="fourB">4</p></td>
+          <td id="fiveB">5</p></td>
+        </tr>
+        <tr>
+          <td id="sixB">6</p></td>
+          <td id="sevenB">7</p></td>
+          <td id="eightB">8</p></td>
+          <td id="nineB">9</p></td>
+          <td id="tenB">10</p></td>
+        </tr>
+        <!-- <tr>
+          <td><p id="oneB">1</p></td>
+          <td><p id="sixB">6</p></td>
+        </tr>
+        <tr>
+          <td><p id="twoB">2</p></td>
+          <td><p id="sevenB">7</p></td>
+        </tr>
+        <tr>
+          <td><p id="threeB">3</p></td>
+          <td><p id="eightB">8</p></td>
+        </tr>
+        <tr>
+          <td><p id="fourB">4</p></td>
+          <td><p id="nineB">9</p></td>
+        </tr>
+        <tr>
+          <td><p id="fiveB">5</p></td>
+          <td><p id="tenB">10</p></td>
+        </tr> -->
+   </article>
+   <script>
+      function checkKeyPress(key) {
+        if (key.keyCode == 49) {
+          clipboardNumber = "1"
+        }
+        if (key.keyCode == 50) {
+          clipboardNumber = "2"
+        }
+        if (key.keyCode == 51) {
+          clipboardNumber = "3"
+        }
+        if (key.keyCode == 52) {
+          clipboardNumber = "4"
+        }
+        if (key.keyCode == 53) {
+          clipboardNumber = "5"
+        }
+        if (key.keyCode == 54) {
+          clipboardNumber = "6"
+        }
+        if (key.keyCode == 55) {
+          clipboardNumber = "7"
+        }
+        if (key.keyCode == 56) {
+          clipboardNumber = "8"
+        }
+        if (key.keyCode == 57) {
+          clipboardNumber = "9"
+        }
+        if (key.keyCode == 48) {
+          clipboardNumber = "10"
+        }
+        sendEvent(clipboardNumber)
+      }
+
+      function sendEvent(text) {
+        try {
+          webkit.messageHandlers.ClipboardGroupSelector.postMessage(text);
+        } catch(err) {
+          console.log('The controller does not exist yet');
+        }
+      }
+
+      function createEventListener() {
+
+         var oneButton = document.getElementById("oneB");
+         var twoButton = document.getElementById("twoB");
+         var threeButton = document.getElementById("threeB");
+         var fourButton = document.getElementById("fourB");
+         var fiveButton = document.getElementById("fiveB");
+         var sixButton = document.getElementById("sixB");
+         var sevenButton = document.getElementById("sevenB");
+         var eightButton = document.getElementById("eightB");
+         var nineButton = document.getElementById("nineB");
+         var tenButton = document.getElementById("tenB");
+
+        oneButton.addEventListener("click", function() {
+          clipboardNumber = "1"
+          sendEvent(clipboardNumber)
+        }, false); 
+
+        twoButton.addEventListener("click", function() {
+          clipboardNumber = "2"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        threeButton.addEventListener("click", function() {
+          clipboardNumber = "3"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        fourButton.addEventListener("click", function() {
+          clipboardNumber = "4"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        fiveButton.addEventListener("click", function() {
+          clipboardNumber = "5"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        sixButton.addEventListener("click", function() {
+          clipboardNumber = "6"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        sevenButton.addEventListener("click", function() {
+          clipboardNumber = "7"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        eightButton.addEventListener("click", function() {
+          clipboardNumber = "8"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        nineButton.addEventListener("click", function() {
+          clipboardNumber = "9"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        tenButton.addEventListener("click", function() {
+          clipboardNumber = "10"
+          sendEvent(clipboardNumber)
+        }, false);  
+
+        window.addEventListener("keydown", checkKeyPress, false);
+      }
+
+      window.addEventListener("load", createEventListener, false);
+
+   </script>
+</body>
+</html>
