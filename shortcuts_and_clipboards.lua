@@ -50,7 +50,7 @@ function activate(target_type, target)
     
 end
 
--- hs.hotkey.bind({'ctrl', 'cmd'}, 'a', function() activate('', '') end)
+-- hs.hotkey.bind({'', ''}, '', function() activate('', '') end)
 
 --Multi-clipboard
 function paste(text)
