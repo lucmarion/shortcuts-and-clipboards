@@ -2,9 +2,8 @@
 
 ##  Keyboard shortcuts:
 
-    Set up keyboard shortcuts to open or focus specified apps or folders.
-    If a shortcut is triggered while the desired app or directory is already open and focused, the app will be hidden, or the directory window will be closed.
-    Can also launch specified files.
+Set up keyboard shortcuts to open/focus specified apps or folders, or launch specified files.<br>
+If a shortcut is triggered while the desired app or directory is already open and focused, the app will be hidden, or the directory window will be closed.
 
 ##  Multiple clipboards:
 
