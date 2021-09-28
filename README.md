@@ -42,7 +42,7 @@ Should you ever want to revert the above change, you can enter the following com
 5. The parameter that follows the curly braces is the final key that will fire the shortcut.
 So if I want my shortcut to fire with Command + Control + F, the first part of the line would look like this:<br>
     `hs.hotkey.bind({'cmd', 'ctrl'}, 'f'`
-6. For the first empty parameter in the activate function, enter `'app'` if you would like this shortcut to target an app, or `'path'` if you would like it to toggle a directory or launch a file.
+6. For the first empty parameter in the activate function, enter `'app'` if you would like this shortcut to toggle an app, or `'path'` if you would like it to toggle a directory or launch a file.
 7. For the second parameter, enter the system name of the app you would like it to toggle, or the path of the directory or file you would like it to toggle.
 If you do not know the system name of the app you would like to toggle (they don't always match with what you'd think), you can manually open the desired app, and as long as this script is active, press Option + E to display the app's system name.
 So if I wanted this shortcut to open Firefox, the full line would read as follows:<br>
