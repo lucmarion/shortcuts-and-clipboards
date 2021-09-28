@@ -47,6 +47,6 @@ So if I want my shortcut to fire with Command + Control + F, the first part of t
 If you do not know the system name of the app you would like to toggle (they don't always match with what you'd think), you can manually open the desired app, and as long as this script is active, press Option + E to display the app's system name.
 So if I wanted this shortcut to open Firefox, the full line would read as follows:<br>
     `hs.hotkey.bind({'cmd', 'ctrl'}, 'f', function() activate('app', 'Firefox') end)`
-8. Duplicate this line, changing the shortcut keys and activation target, for as my shorcuts as you'd like.
+8. Duplicate this line, changing the shortcut keys and activation target, for as many shortcuts as you'd like.
 
 That's it!

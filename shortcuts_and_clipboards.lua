@@ -322,6 +322,11 @@ hs.hotkey.bind({'ctrl', 'alt'}, '`', showClipGroupSelector)
 hs.hotkey.bind({'ctrl', 'alt'}, 'w', toggleClipboardDisplays)
 hs.hotkey.bind({'ctrl', 'alt'}, 'c', toggleSystemClipboardDisplay)
 
+function displayAndCopyAppName()
+    -- hs.pasteboard.setContents(getActiveAppName())
+    hs.alert.show(getActiveAppName())
+end
+
 hs.hotkey.bind({'alt'}, 'e', function() hs.alert.show(getActiveAppName()) end)
 -- hs.hotkey.bind({'alt'}, 'w', function() hs.alert.show(getActiveWindowName()) end)
 -- hs.hotkey.bind({'alt'}, 'c', function() printTableContents(hs.drawing.color) end)
