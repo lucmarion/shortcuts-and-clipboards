@@ -17,8 +17,10 @@ If a shortcut is triggered while the desired app or directory is already open an
 1. Install Hammerspoon: https://github.com/Hammerspoon/hammerspoon/releases/
 (Currently this script is known to work on .9.90)
 2. In Settings > Security & Privacy, navigate to the Privacy tab, select Accessibility, click the Lock icon in the lower left, enter your system credentials, check the box next to Hammerspoon.app in the list to the right, and click the Lock again.
-3. From the hammer icon in the upper right, select Open Config. This will open init.lua.
-4. Paste the contents of the included Lua into init.lua and Save.
+3. From the hammer icon in the upper right, select Preferences.
+4. Check the "Launch Hammerspoon at login" box, and close the window.
+5. From the same hammer icon, select Open Config. This will open init.lua.
+6. Paste the contents of the included Lua into init.lua and Save.
 
 # Window Title Setup:
 
