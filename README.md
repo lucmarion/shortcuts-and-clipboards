@@ -7,10 +7,12 @@ If a shortcut is triggered while the desired app or directory is already open an
 
 ##  Multiple clipboards:
 
-*    Select text, and copy to a clipboard tied to the digits 0 - 9 with Ctrl + Option + <number_between_0_and_9>
-*    Paste from that clipboard with Option + <number_between_0_and_9>
+*    Select text, and copy to a clipboard tied to one the digits between 0 - 9 with Ctrl + Option + <number_to_copy_to>
+*    Paste from that clipboard with Option + <number_copied_to>
 *    Show the contents of each of the 10 clipboards with Ctrl + Option + W. Hide the display by pressing Ctrl + Option + W again.
-*    For permanent clipboards that are referred to regularly, open any of the Clipgroup txt files, and enter whatever is desired into each of the sections, 1 - 10. Load the group you want by using Ctrl + Option `, and selecting the desired group (when the GUI appears, you can either click the desired number, or press the desired number on your keyboard). Whenever the script is launched, ClipGroup1.txt is loaded by default.
+*    For permanent clipboards that are referred to regularly, open any of the Clipgroup txt files, and enter whatever is desired into each of the sections, 1 - 10. Load the group you want by using Ctrl + Option \`, and selecting the desired group (when the GUI appears, you can either click the desired number, or press the desired number on your keyboard). Whenever the script is launched, ClipGroup1.txt is loaded by default.
+*   To open the Clipgroup text file that is currently loaded, press Ctrl + Option + -. If you save any changes, remember to reload the group with Ctrl + Option + `.
+*   Not really relevant to anything, but something I added when I was writing daily reports: Option + -, will paste the current date in M/D/YYYY format.
 
 # Initial Setup:
 
