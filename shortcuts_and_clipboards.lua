@@ -40,14 +40,24 @@ function activate(target_type, target)
             hs.application.launchOrFocus(target)
         end
     elseif target_type == 'path' then
+        -- log.i("\n--------\nActivating path:\n" .. target)
+        -- log.i("Active window: " .. getActiveWindowName() .. "\nTarget: " .. target)
         if getActiveWindowName() == target then
+            -- log.i("Closing window...")
             hs.window.focusedWindow():close()
         else
+            -- For folders with spaces in their titles:
+            -- The escape character only needs to appear when the shell command is triggered.
+            -- If it is added earlier, getActiveWindow() and target will not match when they
+            -- should, as the escape character will appear in target, but not getActiveWindow()
+            if string.find(target, " ") then
+                target = target:gsub(" ", "\\ ")
+            end
+            -- log.i("Opening window...")
             local shell_command = "open " .. target
             hs.execute(shell_command)
         end
     end
-    
 end
 
 -- hs.hotkey.bind({'', ''}, '', function() activate('', '') end)
@@ -322,10 +332,7 @@ hs.hotkey.bind({'ctrl', 'alt'}, '`', showClipGroupSelector)
 hs.hotkey.bind({'ctrl', 'alt'}, 'w', toggleClipboardDisplays)
 hs.hotkey.bind({'ctrl', 'alt'}, 'c', toggleSystemClipboardDisplay)
 
-function displayAndCopyAppName()
-    -- hs.pasteboard.setContents(getActiveAppName())
-    hs.alert.show(getActiveAppName())
-end
+
 
 hs.hotkey.bind({'alt'}, 'e', function() hs.alert.show(getActiveAppName()) end)
 -- hs.hotkey.bind({'alt'}, 'w', function() hs.alert.show(getActiveWindowName()) end)
