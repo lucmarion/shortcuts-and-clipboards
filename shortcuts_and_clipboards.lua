@@ -312,7 +312,7 @@ hs.hotkey.bind({'ctrl', 'alt'}, '5', function() clipboards[5] = copy() end)
 hs.hotkey.bind({'ctrl', 'alt'}, '6', function() clipboards[6] = copy() end)
 hs.hotkey.bind({'ctrl', 'alt'}, '7', function() clipboards[7] = copy() end)
 hs.hotkey.bind({'ctrl', 'alt'}, '8', function() clipboards[8] = copy() end)
-hs.hotkey.bind({'ctrl', 'alt'}, '9', function() clipboards[0] = copy() end)
+hs.hotkey.bind({'ctrl', 'alt'}, '9', function() clipboards[9] = copy() end)
 hs.hotkey.bind({'ctrl', 'alt'}, '0', function() clipboards[10] = copy() end)
 hs.hotkey.bind({'ctrl', 'alt'}, '-', openActiveClipGroup)
 
