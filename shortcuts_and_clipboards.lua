@@ -31,12 +31,17 @@ function printTableContents(input_table)
 end
 
 --Shortcuts
-function activate(target_type, target)
+function activate(target_type, target, unlaunched_name)
+    -- Some apps have a different name when unlaunched.
+    unlaunched_name = unlaunched_name or nil
     local log = hs.logger.new('activate', 'debug')
     if target_type == 'app' then
         if getActiveAppName() == target then
             hs.application.frontmostApplication():hide()
         else
+            if unlaunched_name ~= nil then
+                target = unlaunched_name
+            end
             hs.application.launchOrFocus(target)
         end
     elseif target_type == 'path' then
@@ -290,8 +295,8 @@ function toggleSystemClipboardDisplay()
     end    
 end
 
-selectorPath = '/Users/lucmarion/Documents/Scripts/Hammerspoon/MultiClip/selector.html'
-clipboardPath = '/Users/lucmarion/Documents/Scripts/Hammerspoon/MultiClip/ClipGroup'
+selectorPath = '~/shortcuts-and-clipboards/selector.html'
+clipboardPath = '~/shortcuts-and-clipboards/ClipGroup'
 clipboards = loadClipLib(1)
 activeClipGroup = 1
 initialWindow = nil
