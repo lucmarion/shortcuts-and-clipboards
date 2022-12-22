@@ -78,6 +78,28 @@ function paste(text)
     hs.pasteboard.setContents(tempClip)
 end
 
+function pasteReplace(mainText, replacementText)
+    local log = hs.logger.new('pasteReplace', 'debug')
+ 
+    local tempClip = hs.pasteboard.getContents()
+    local finalText = mainText
+    local replaceCall = "||REPLACEME||"
+
+    if mainText:find(replaceCall) then
+        if type(replacementText) == 'string' and replacementText ~= 'nil' then
+            finalText = finalText:gsub(replaceCall, replacementText)
+            log.i('\n---------------\nMain Text:\n  ' .. mainText .. '\nReplacement Text:\n  ' .. replacementText .. '\nFinal Text:\n  ' .. finalText .. '\n---------------\n')
+        else
+            finalText = finalText:gsub(replaceCall, 'x')
+            log.i("Clipboard datatype is not string")
+        end
+    else
+        log.i("No replace call")
+    end
+
+    paste(finalText)
+end
+
 function copy()
     local tempClip = hs.pasteboard.getContents()
     hs.eventtap.keyStroke("cmd", "c") 
@@ -332,6 +354,17 @@ hs.hotkey.bind({'alt'}, '8', function() paste(clipboards[8]) end)
 hs.hotkey.bind({'alt'}, '9', function() paste(clipboards[9]) end)
 hs.hotkey.bind({'alt'}, '0', function() paste(clipboards[10]) end)
 hs.hotkey.bind({'alt'}, '-', pasteDate)
+
+hs.hotkey.bind({'shift', 'alt'}, '1', function() pasteReplace(clipboards[1], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '2', function() pasteReplace(clipboards[2], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '3', function() pasteReplace(clipboards[3], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '4', function() pasteReplace(clipboards[4], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '5', function() pasteReplace(clipboards[5], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '6', function() pasteReplace(clipboards[6], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '7', function() pasteReplace(clipboards[7], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '8', function() pasteReplace(clipboards[8], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '9', function() pasteReplace(clipboards[9], hs.pasteboard.getContents()) end)
+hs.hotkey.bind({'shift', 'alt'}, '0', function() pasteReplace(clipboards[10], hs.pasteboard.getContents()) end)
 
 hs.hotkey.bind({'ctrl', 'alt'}, '`', showClipGroupSelector)
 hs.hotkey.bind({'ctrl', 'alt'}, 'w', toggleClipboardDisplays)
