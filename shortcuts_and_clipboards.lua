@@ -68,10 +68,19 @@ end
 -- hs.hotkey.bind({'', ''}, '', function() activate('', '') end)
 
 --Multi-clipboard
-function paste(text)
+function paste(text, tempClipOptional)
     local log = hs.logger.new('paste', 'debug')
-
     local tempClip = hs.pasteboard.getContents()
+
+    -- Making this an optional variable so that pasteReplace() can use this and restore the clipboard afterward
+    if tempClipOptional == nil then
+        -- log.i("\nNot using pasteReplace(), tempClip should now be: " .. hs.pasteboard.getContents())
+    else
+        -- log.i("\nUsing pastReplace(), tempClip should now be: " .. tempClipOptional)
+        tempClip = tempClipOptional
+    end
+    log.i("\ntempClip is actually: " .. tempClip)
+
     hs.pasteboard.setContents(text)
     -- log.i('\n---------------\n' .. 'Clipboard contents: ' .. hs.pasteboard.getContents() .. '\n---------------\n')
     hs.eventtap.keyStroke("cmd", "v")
@@ -97,7 +106,7 @@ function pasteReplace(mainText, replacementText)
         log.i("No replace call")
     end
 
-    paste(finalText)
+    paste(finalText, tempClip)
 end
 
 function copy()
